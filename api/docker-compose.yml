@@ -1,0 +1,9 @@
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${DB_USER:-user}
+      POSTGRES_PASSWORD: ${DB_PASS:-pass}
+      POSTGRES_DB: ${DB_NAME:-instragam}
+    ports:
+      - ${DB_PORT:-9200}:5432
