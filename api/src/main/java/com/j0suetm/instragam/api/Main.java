@@ -1,7 +1,8 @@
 package com.j0suetm.instragam.api;
 
-import org.slf4j.*;
 import com.j0suetm.instragam.api.providers.*;
+
+import org.slf4j.*;
 import io.github.cdimascio.dotenv.*;
 import org.flywaydb.core.Flyway;
 
@@ -24,6 +25,8 @@ public class Main {
       .dataSource(dbProvider.dataSource)
       .load()
       .migrate();
+
+    new Server(dbProvider);
   }
 
   public static void main(String[] args) {
