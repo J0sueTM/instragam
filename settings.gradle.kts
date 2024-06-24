@@ -4,3 +4,4 @@ plugins {
 
 rootProject.name = "instragam"
 include("api")
+include("desktop")
