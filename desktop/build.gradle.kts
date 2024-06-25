@@ -14,6 +14,8 @@ dependencies {
     implementation("jakarta.validation:jakarta.validation-api:3.1.0")
     implementation("org.glassfish:jakarta.el:4.0.2")
     implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
+    implementation("de.saxsys:mvvmfx:1.8.0")
+    implementation("de.saxsys:mvvmfx-cdi:1.8.0")
 
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
