@@ -1,7 +1,7 @@
 package com.j0suetm.instragam.desktop;
 
 import com.j0suetm.instragam.desktop.providers.*;
-import com.j0suetm.instragam.desktop.controllers.*;
+import com.j0suetm.instragam.desktop.presenters.*;
 
 import javafx.application.*;
 import javafx.scene.*;
@@ -10,7 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
 public class Main extends Application {
-  private ViewProvider viewProvider;
+  public static MainPresenter mainPresenter;
 
   public static void main(String[] args) {
     launch(args);
@@ -18,13 +18,15 @@ public class Main extends Application {
 
   @Override
   public void start(Stage mainStage) {
-    viewProvider = new ViewProvider(mainStage)
-      .add("Auth")
-      .add("Feed");
-
     mainStage.setTitle("Instragam Desktop");
     mainStage.setScene(new Scene(new AnchorPane()));
-    viewProvider.switchTo("Auth");
+
+    ViewProvider viewProvider = new ViewProvider(mainStage)
+      .add("Auth")
+      .add("Feed");
+    mainPresenter = new MainPresenter(viewProvider);
+    mainPresenter.viewName.set("Auth");
+
     mainStage.show();
   }
 }
