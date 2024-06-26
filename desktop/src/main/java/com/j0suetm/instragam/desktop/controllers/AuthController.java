@@ -12,21 +12,28 @@ public class AuthController {
   @FXML
   public void initialize() {
     presenter = new AuthPresenter();
+
+    userHandleFld
+      .textProperty()
+      .bindBidirectional(presenter.userHandle);
+    userPasswordFld
+      .textProperty()
+      .bindBidirectional(presenter.userPassword);
   }
 
   @FXML
-  private TextField userHandle;
+  private TextField userHandleFld;
 
   @FXML
-  private PasswordField userPassword;
+  private PasswordField userPasswordFld;
 
   @FXML
   void logInUser(ActionEvent event) {
-    System.out.println("tried to login");
+    presenter.loginUser();
   }
 
   @FXML
   void signUpUser(ActionEvent event) {
-    System.out.println("tried to signup");
+    presenter.signupUser();
   }
 }

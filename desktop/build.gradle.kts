@@ -15,6 +15,8 @@ dependencies {
     implementation("org.glassfish:jakarta.el:4.0.2")
     implementation("org.hibernate.validator:hibernate-validator:8.0.1.Final")
     implementation("io.vertx:vertx-rx-java:4.5.8")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("io.github.cdimascio:dotenv-java:3.0.0")
 
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")

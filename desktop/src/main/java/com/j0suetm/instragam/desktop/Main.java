@@ -3,6 +3,7 @@ package com.j0suetm.instragam.desktop;
 import com.j0suetm.instragam.desktop.providers.*;
 import com.j0suetm.instragam.desktop.presenters.*;
 
+import okhttp3.*;
 import javafx.application.*;
 import javafx.scene.*;
 import javafx.stage.*;
@@ -26,6 +27,17 @@ public class Main extends Application {
       .add("Feed");
     mainPresenter = new MainPresenter(viewProvider);
     mainPresenter.viewName.set("Auth");
+
+    // HttpProvider httpProvider = new HttpProvider();
+    // HttpProvider.ShortResponse<Object> resp = httpProvider
+    //   .doRequest(
+    //     httpProvider
+    //       .initRequest("/users/login")
+    //       .post(RequestBody.create("{}", HttpProvider.JSON_MEDIATYPE))
+    //       .build(),
+    //     Object.class
+    //   );
+    // System.out.println(resp);
 
     mainStage.show();
   }

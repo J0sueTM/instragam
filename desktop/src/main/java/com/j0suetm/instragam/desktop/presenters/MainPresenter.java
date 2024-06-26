@@ -8,12 +8,10 @@ import javafx.beans.property.*;
 public class MainPresenter {
   public MainModel mainModel = new MainModel();
 
-  public StringProperty viewName;
+  public StringProperty viewName = new SimpleStringProperty("");
 
   public MainPresenter(ViewProvider viewProvider) {
-    viewName = new SimpleStringProperty("");
-    
-    viewName.addListener((observable, oldValue, newValue) -> {
+    viewName.addListener((,, newValue) -> {
       mainModel.viewName = newValue;
       viewProvider.switchTo(newValue);
     });
