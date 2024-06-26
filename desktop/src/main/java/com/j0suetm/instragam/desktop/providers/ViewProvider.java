@@ -1,40 +1,44 @@
 package com.j0suetm.instragam.desktop.providers;
 
-import de.saxsys.mvvmfx.*;
+import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.stage.*;
 import java.util.*;
+import java.net.*;
 
-public class ViewProvider <
-  ViewType extends FxmlView<? extends ViewModelType>,
-  ViewModelType extends ViewModel
-> {
+public class ViewProvider {
   private Stage mainStage;
-  private Map<String, Class<? extends ViewType>> views = new HashMap<>();
+  private List<String> views = new ArrayList<>();
 
   public ViewProvider(Stage mainStage) {
     this.mainStage = mainStage;
   }
 
-  public ViewProvider<ViewType, ViewModelType> add(
-    String viewName,
-    Class<? extends ViewType> view
-  ) {
-    views.put(viewName, view);
+  private String buildViewFilepath(String viewName) {
+    return "../views/" + viewName + "View.fxml";
+  }
+
+  public ViewProvider add(String viewName) {
+    views.add(viewName);
 
     return this;
   }
 
   public void switchTo(String viewName) {
-    if (views.containsKey(viewName)) {
-      mainStage.getScene().setRoot(
-        FluentViewLoader
-          .fxmlView(views.get(viewName))
-          .load()
-          .getView()
-      );
-    } else {
+    if (!views.contains(viewName)) {
       throw new IllegalArgumentException("view " + viewName + " not found");
+    }
+
+    try {
+      mainStage.getScene().setRoot(
+        new FXMLLoader().load(
+          getClass().getResource(
+            buildViewFilepath(viewName)
+          )
+        )
+      );
+    } catch (Exception ex) {
+      ex.printStackTrace();
     }
   }
 }

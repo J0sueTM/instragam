@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.j0suetm.instragam.desktop.views.AuthView">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.j0suetm.instragam.desktop.controllers.AuthController">
    <children>
       <GridPane hgap="10.0" layoutX="11.0" prefHeight="150.0" prefWidth="477.0" vgap="10.0">
         <columnConstraints>
@@ -30,8 +30,8 @@
             <TextField fx:id="userHandle" minWidth="-Infinity" promptText="j0suetm" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
             <Label text="password:" GridPane.rowIndex="2" />
             <PasswordField fx:id="userPassword" promptText="********" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="341.0" text="Log In" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="159.0" text="SIGN UP" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="logInBtn" mnemonicParsing="false" onAction="#logInUser" prefHeight="24.0" prefWidth="341.0" text="Log In" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Button fx:id="signUpBtn" mnemonicParsing="false" onAction="#signUpUser" prefHeight="24.0" prefWidth="159.0" text="Sign Up" GridPane.columnIndex="2" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>

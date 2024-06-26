@@ -1,7 +1,7 @@
 package com.j0suetm.instragam.desktop;
 
 import com.j0suetm.instragam.desktop.providers.*;
-import com.j0suetm.instragam.desktop.views.*;
+import com.j0suetm.instragam.desktop.controllers.*;
 
 import javafx.application.*;
 import javafx.scene.*;
@@ -19,7 +19,8 @@ public class Main extends Application {
   @Override
   public void start(Stage mainStage) {
     viewProvider = new ViewProvider(mainStage)
-      .add("Auth", AuthView.class);
+      .add("Auth")
+      .add("Feed");
 
     mainStage.setTitle("Instragam Desktop");
     mainStage.setScene(new Scene(new AnchorPane()));
