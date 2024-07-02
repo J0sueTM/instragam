@@ -28,17 +28,6 @@ public class Main extends Application {
     mainPresenter = new MainPresenter(viewProvider);
     mainPresenter.viewName.set("Auth");
 
-    // HttpProvider httpProvider = new HttpProvider();
-    // HttpProvider.ShortResponse<Object> resp = httpProvider
-    //   .doRequest(
-    //     httpProvider
-    //       .initRequest("/users/login")
-    //       .post(RequestBody.create("{}", HttpProvider.JSON_MEDIATYPE))
-    //       .build(),
-    //     Object.class
-    //   );
-    // System.out.println(resp);
-
     mainStage.show();
   }
 }

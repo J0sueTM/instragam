@@ -1,6 +1,7 @@
 package com.j0suetm.instragam.desktop.controllers;
 
 import com.j0suetm.instragam.desktop.presenters.*;
+import com.j0suetm.instragam.desktop.models.*;
 
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -19,6 +20,15 @@ public class AuthController {
     userPasswordFld
       .textProperty()
       .bindBidirectional(presenter.userPassword);
+
+    presenter.errRes.addListener((,, newValue) -> {
+        ResultModel res = (ResultModel)newValue;
+        new Alert(
+          Alert.AlertType.ERROR,
+          res.format(),
+          ButtonType.OK
+        ).showAndWait();
+    });
   }
 
   @FXML
